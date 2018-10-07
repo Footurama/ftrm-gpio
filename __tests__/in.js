@@ -77,6 +77,16 @@ describe('factory', () => {
 		expect(output.value).toBe(value);
 	});
 
+	test('invert values', () => {
+		const invert = true;
+		const value = true;
+		mockOnoff.Gpio.prototype.read.mockImplementationOnce((cb) => cb(null, value ? 0 : 1));
+		const output = {};
+		IN.factory({gpio: 2, watch: true, invert}, [], [output]);
+		mockOnoff.Gpio.prototype.watch.mock.calls[0][0]();
+		expect(output.value).toBe(value);
+	});
+
 	test('ignore errors', () => {
 		mockOnoff.Gpio.prototype.read.mockImplementationOnce((cb) => cb(new Error()));
 		const output = {};

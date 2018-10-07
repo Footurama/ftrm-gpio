@@ -13,7 +13,9 @@ function factory (opts, input, output) {
 	// Helper for reading the value
 	const read = () => gpio.read((err, value) => {
 		if (err) return;
-		output[0].value = value !== 0;
+		value = value !== 0;
+		if (opts.invert) value = !value;
+		output[0].value = value;
 	});
 
 	// Publish by interval
