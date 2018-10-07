@@ -32,8 +32,8 @@ Read from a GPIO.
 
 Configuration:
 
- * ```input```: **0**.
- * ```output```: **1**. Target pipe for read values.
+ * ```input```: **1**. Source pipe for GPIO state.
+ * ```output```: **0**.
  * ```gpio```: The GPIO's pin number.
  * ```invert```: If set to true the GPIO will be put into active LOW mode. Default: ```false```.
  * ```default```: If set, the input will be read in an interval of the given number of milliseconds.
