@@ -1,0 +1,42 @@
+{
+  "name": "ftrm-gpio",
+  "version": "0.0.0",
+  "description": "Footurama GPIO",
+  "main": "index.js",
+  "scripts": {
+    "test": "happiness && jest --verbose",
+    "watch": "jest --watchAll"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Footurama/ftrm-gpio.git"
+  },
+  "keywords": [
+    "iot",
+    "home automation"
+  ],
+  "author": "Juergen Fitschen <me@jue.yt>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Footurama/ftrm-gpio/issues"
+  },
+  "homepage": "https://github.com/Footurama/ftrm-gpio#readme",
+  "devDependencies": {
+    "happiness": "^10.0.2",
+    "jest": "^23.1.0"
+  },
+  "happiness": {
+    "globals": [
+      "jest",
+      "describe",
+      "test",
+      "expect",
+      "beforeEach"
+    ]
+  },
+  "jest": {
+    "automock": false,
+    "clearMocks": true
+  },
+  "dependencies": {}
+}
