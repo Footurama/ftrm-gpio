@@ -13,17 +13,20 @@ function factory (opts, input, output) {
 	// Helper for writing to GPIO
 	const write = (value) => {
 		if (opts.invert) value = !value;
-		gpio.write(value ? 1 : 0);
+		gpio.writeSync(value ? 1 : 0);
 	};
 
-	// Write default in start
+	// Write default on start
 	write(opts.default);
 
 	// Listen to input events
 	input[0].on('update', (value) => write(value));
 	input[0].on('expire', () => write(opts.default));
 
-	return () => gpio.unexport();
+	return () => {
+		write(opts.default);
+		gpio.unexport();
+	};
 }
 
 module.exports = {check, factory};
