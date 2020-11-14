@@ -1,3 +1,8 @@
+const pkgInfo = require('./package.json');
+const fileName = __filename.slice(__dirname.length + 1, -3);
+const name = `${pkgInfo.name}/${fileName}`;
+const url = pkgInfo.homepage;
+
 const {EventEmitter} = require('events');
 const Gpio = require('onoff').Gpio;
 
@@ -88,4 +93,4 @@ function factory (opts, input, output) {
 	return () => exportedGpios.forEach((gpio) => gpio.unexport());
 }
 
-module.exports = {check, factory};
+module.exports = {name, url, check, factory};
