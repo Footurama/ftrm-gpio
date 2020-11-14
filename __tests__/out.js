@@ -68,32 +68,37 @@ describe('factory', () => {
 
 	test('write default on start', () => {
 		OUT.factory({default: true}, [new EventEmitter()]);
-		expect(mockOnoff.Gpio.prototype.writeSync.mock.calls[0][0]).toBe(1);
+		const gpio = mockOnoff.Gpio.mock.instances[0];
+		expect(gpio.writeSync.mock.calls[0][0]).toBe(1);
 	});
 
 	test('invert high and low level', () => {
 		OUT.factory({default: true, invert: true}, [new EventEmitter()]);
-		expect(mockOnoff.Gpio.prototype.writeSync.mock.calls[0][0]).toBe(0);
+		const gpio = mockOnoff.Gpio.mock.instances[0];
+		expect(gpio.writeSync.mock.calls[0][0]).toBe(0);
 	});
 
 	test('write output on update event', () => {
 		const input = new EventEmitter();
 		OUT.factory({}, [input]);
 		input.emit('update', true);
-		expect(mockOnoff.Gpio.prototype.writeSync.mock.calls[1][0]).toBe(1);
+		const gpio = mockOnoff.Gpio.mock.instances[0];
+		expect(gpio.writeSync.mock.calls[1][0]).toBe(1);
 	});
 
 	test('write default on expire event', () => {
 		const input = new EventEmitter();
 		OUT.factory({}, [input]);
 		input.emit('update', true);
-		expect(mockOnoff.Gpio.prototype.writeSync.mock.calls[1][0]).toBe(1);
+		const gpio = mockOnoff.Gpio.mock.instances[0];
+		expect(gpio.writeSync.mock.calls[1][0]).toBe(1);
 	});
 
 	test('unexport on exit', () => {
 		const exit = OUT.factory({default: true, invert: true}, [new EventEmitter()]);
 		exit();
-		expect(mockOnoff.Gpio.prototype.writeSync.mock.calls[0][0]).toBe(0);
-		expect(mockOnoff.Gpio.prototype.unexport.mock.calls.length).toBe(1);
+		const gpio = mockOnoff.Gpio.mock.instances[0];
+		expect(gpio.writeSync.mock.calls[0][0]).toBe(0);
+		expect(gpio.unexport.mock.calls.length).toBe(1);
 	});
 });
