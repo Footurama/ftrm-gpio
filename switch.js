@@ -14,7 +14,6 @@ function check (opts) {
 	if (opts.toggleDebounce === undefined) opts.toggleDebounce = 10;
 	if (opts.onDebounce === undefined) opts.onDebounce = 10;
 	if (opts.offDebounce === undefined) opts.offDebounce = 10;
-	if (opts.default === undefined) opts.default = false;
 }
 
 class Bool extends EventEmitter {

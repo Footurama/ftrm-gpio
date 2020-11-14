@@ -24,8 +24,7 @@ describe('check', () => {
 			onEdge: 'falling',
 			onDebounce: 10,
 			offEdge: 'falling',
-			offDebounce: 10,
-			default: false
+			offDebounce: 10
 		});
 	});
 });
