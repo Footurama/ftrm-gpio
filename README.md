@@ -8,12 +8,12 @@ Read from a GPIO.
 
 Configuration:
 
- * ```input```: **0**.
- * ```output```: **1**. Target pipe for read values.
- * ```gpio```: The GPIO's pin number.
- * ```invert```: If set to true HIGH will get false and LOW will get true. Default: ```false```.
- * ```interval```: If set, the input will be read in an interval of the given number of milliseconds.
- * ```watch```: Emit values if an edge is detected on the input. Default: ```true```
+ * `input`: **0**.
+ * `output`: **1**. Target pipe for read values.
+ * `gpio`: The GPIO's pin number.
+ * `invert`: If set to true HIGH will get false and LOW will get true. Default: `false`
+ * `interval`: If set, the input will be read in an interval of the given number of milliseconds.
+ * `watch`: Emit values if an edge is detected on the input. Default: `true`
 
 Example:
 
@@ -32,11 +32,11 @@ Read from a GPIO.
 
 Configuration:
 
- * ```input```: **1**. Source pipe for GPIO state.
- * ```output```: **0**.
- * ```gpio```: The GPIO's pin number.
- * ```invert```: If set to true the GPIO will be put into active LOW mode. Default: ```false```.
- * ```default```: If set, the input will be read in an interval of the given number of milliseconds.
+ * `input`: **1**. Source pipe for GPIO state.
+ * `output`: **0**.
+ * `gpio`: The GPIO's pin number.
+ * `invert`: If set to true the GPIO will be put into active LOW mode. Default: `false`.
+ * `default`: If set, the input will be read in an interval of the given number of milliseconds.
 
 Example:
 
@@ -45,7 +45,7 @@ Example:
 // If no values are received within 5 minutes, the default will be set.
 module.exports = [require('ftrm-gpio/out'), {
 	input: [{pipe: 'input-pipe-with-booleans', expire: 5 * 60 * 1000}],
-	default: true
+	default: true,
 	gpio: 23
 }];
 ```
