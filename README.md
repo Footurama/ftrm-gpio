@@ -59,6 +59,7 @@ Configuration:
 
  * `input`: Optional. Set the on state of the switch.
  * `output`: The current on state of the switch.
+ * `default`: Default on state. Default: `false`
  * `toggleGpio`: Optional. Toggle button GPIO number.
  * `toggleEdge`: Toggle button edge. Default: `'falling'`
  * `toggleDebounce`: Toggle button debounce timeout in ms. Default: `10`
