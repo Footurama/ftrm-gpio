@@ -49,3 +49,38 @@ module.exports = [require('ftrm-gpio/out'), {
 	gpio: 23
 }];
 ```
+
+
+# ftrm-gpio/out
+
+Implements a switch.
+
+Configuration:
+
+ * `input`: Optional. Set the on state of the switch.
+ * `output`: The current on state of the switch.
+ * `default`: Default on state. Default: `false`
+ * `toggleGpio`: Optional. Toggle button GPIO number.
+ * `toggleEdge`: Toggle button edge. Default: `'falling'`
+ * `toggleDebounce`: Toggle button debounce timeout in ms. Default: `10`
+ * `onGpio`: Optional. On button GPIO number.
+ * `onEdge`: On button edge. Default: `'falling'`
+ * `onDebounce`: On button debounce timeout in ms. Default: `10`
+ * `offGpio`: Optional. Off button GPIO number.
+ * `offEdge`: Off button edge. Default: `'falling'`
+ * `offDebounce`: Off button debounce timeout in ms. Default: `10`
+ * `ledGpio`: Optional. On state LED GPIO number.
+ * `ledInvert`: Invert on state LED. Default: `false`
+
+Example:
+
+```js
+// Connect a push button and a pull-up resistor to GPIO 23. Pressing the button
+// must pull the GPIO to GND. Connect a LED to GPIO 24. Have fun pressing the button!
+module.exports = [require('ftrm-gpio/switch'), {
+	input: 'on-state-desired',
+	output: 'on-state-actual',
+	toggleGpio: 23,
+	ledGpio: 24
+}];
+```
