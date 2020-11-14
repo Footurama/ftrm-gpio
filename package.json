@@ -23,7 +23,7 @@
   "homepage": "https://github.com/Footurama/ftrm-gpio#readme",
   "devDependencies": {
     "happiness": "^10.0.2",
-    "jest": "^23.1.0"
+    "jest": "^26.6.3"
   },
   "happiness": {
     "globals": [
